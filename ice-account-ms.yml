@@ -4,3 +4,9 @@ server:
   port: 8000
 message:  
   greeting: Hello from the configuration
+security:
+  basic:
+    enabled: false
+  user:
+    name: user
+    password: ${CONFIG_SERVICE_PASSWORD}
