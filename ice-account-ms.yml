@@ -1,12 +1,12 @@
 spring:
-  profiles.active: default
+  profiles.active: dev
 
 ---
 ############################
 # PROFILE DEV DEFAULT
 ############################
 spring:
-  profiles: default
+  profiles: dev
 
 configuration:  
   projectName: configclientDev
