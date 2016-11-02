@@ -15,7 +15,7 @@ spring:
     password: hello00
 
 configuration:  
-  projectName: ICE ACCOUNT MS 1
+  projectName: ICE ADMIN BACKEND MS 1
 
 management.security.enabled: false
 
@@ -23,10 +23,10 @@ endpoints:
   restart:
     enabled: true
   shutdown:
-    enabled: true
+    enabled: true 
 
 server:  
-  port: 8300
+  port: 8400
 
 message:  
   greeting: Hello from the configuration dev

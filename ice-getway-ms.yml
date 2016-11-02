@@ -14,10 +14,19 @@ spring:
     username: user
     password: hello00
 
-configuration:  
-  projectName: ICE ACCOUNT MS 1
-
 management.security.enabled: false
+
+zuul:
+  ignored-services: '*'
+  ignoredPatterns: /**/api/**
+  routes:
+    account-service: /account/**
+    payment-service: /payment/**
+    inventory-service: /inventory/**
+    order-service: /order/**
+    user-service: /user/**
+    catalog-service: /catalog/**
+    shopping-cart-service: /shoppingcart/**
 
 endpoints:
   restart:
@@ -28,8 +37,6 @@ endpoints:
 server:  
   port: 8300
 
-message:  
-  greeting: Hello from the configuration dev
 security:
   basic:
     enabled: false
@@ -54,14 +61,9 @@ logging:
 spring:
     profiles: docker
 
-configuration:  
-  projectName: configclientDocker
-
 server:  
   port: 8400
 
-message:  
-  greeting: Hello from the configuration docker
 security:
   basic:
     enabled: false
@@ -86,14 +88,9 @@ logging:
 spring:
     profiles: uat
 
-configuration:  
-  projectName: configclientUAT
-
 server:  
   port: 8500
 
-message:  
-  greeting: Hello from the configuration uat
 security:
   basic:
     enabled: false
@@ -118,14 +115,9 @@ logging:
 spring:
   profiles: prod
 
-configuration:  
-  projectName: configclientprod
-
 server:  
   port: 8600
 
-message:  
-  greeting: Hello from the configuration prod
 security:
   basic:
     enabled: false
@@ -150,14 +142,9 @@ logging:
 spring:
   profiles: prod-oracle
 
-configuration:  
-  projectName: configclientprod-oracle
-
 server:  
   port: 8700
 
-message:  
-  greeting: Hello from the configuration prod-oracle
 security:
   basic:
     enabled: false
