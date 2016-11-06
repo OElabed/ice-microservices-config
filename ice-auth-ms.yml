@@ -1,0 +1,176 @@
+spring:
+  profiles.active: dev
+
+---
+############################
+# PROFILE DEV DEFAULT
+############################
+spring:
+  profiles: dev
+  rabbitmq:
+    # addresses:
+    host: ${RABBIT_MQ_BUS_HOST}
+    port: ${RABBIT_MQ_BUS_PORT}
+    username: admin#1
+    password: ${RABBIT_MQ_BUS_PASSWORD}
+
+configuration:  
+  projectName: ICE AUTH MS 1
+
+management.security.enabled: false
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+
+server:  
+  port: ${ICE_AUTH_MS_PORT}
+
+message:  
+  greeting: Hello from the configuration dev
+security:
+  basic:
+    enabled: false
+  user:
+    name: admin#1
+    password: ${ICE_AUTH_MS_PASSWORD}
+
+logging:
+  file: logs/default_app.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework.web: WARN
+    guru.springframework.controllers: WARN
+    org.hibernate: WARN
+
+---
+############################
+# PROFILE DCKER
+############################
+spring:
+    profiles: docker
+
+configuration:  
+  projectName: configclientDocker
+
+server:  
+  port: 8400
+
+message:  
+  greeting: Hello from the configuration docker
+security:
+  basic:
+    enabled: false
+  user:
+    name: user
+    password: ${CONFIG_SERVICE_PASSWORD}
+
+logging:
+  file: logs/docker_app.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework.web: WARN
+    guru.springframework.controllers: WARN
+    org.hibernate: WARN
+
+---
+############################
+# PROFILE UAT
+############################
+spring:
+    profiles: uat
+
+configuration:  
+  projectName: configclientUAT
+
+server:  
+  port: 8500
+
+message:  
+  greeting: Hello from the configuration uat
+security:
+  basic:
+    enabled: false
+  user:
+    name: user
+    password: ${CONFIG_SERVICE_PASSWORD}
+
+logging:
+  file: logs/uat_app.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework.web: WARN
+    guru.springframework.controllers: WARN
+    org.hibernate: WARN
+
+---
+############################
+# PROFILE PRODUCTION MYSQL
+############################
+spring:
+  profiles: prod
+
+configuration:  
+  projectName: configclientprod
+
+server:  
+  port: 8600
+
+message:  
+  greeting: Hello from the configuration prod
+security:
+  basic:
+    enabled: false
+  user:
+    name: user
+    password: ${CONFIG_SERVICE_PASSWORD}
+
+logging:
+  file: logs/prod_app.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework.web: WARN
+    guru.springframework.controllers: WARN
+    org.hibernate: WARN
+
+---
+############################
+# PROFILE PRODUCTION ORACLE
+############################
+spring:
+  profiles: prod-oracle
+
+configuration:  
+  projectName: configclientprod-oracle
+
+server:  
+  port: 8700
+
+message:  
+  greeting: Hello from the configuration prod-oracle
+security:
+  basic:
+    enabled: false
+  user:
+    name: user
+    password: ${CONFIG_SERVICE_PASSWORD}
+
+logging:
+  file: logs/prod_oracle_app.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework.web: WARN
+    guru.springframework.controllers: WARN
+    org.hibernate: WARN
