@@ -9,10 +9,10 @@ spring:
   profiles: dev
   rabbitmq:
     # addresses:
-    host: localhost
-    port: 5672
-    username: user
-    password: hello00
+    host: ${RABBIT_MQ_BUS_HOST}
+    port: ${RABBIT_MQ_BUS_PORT}
+    username: admin#1
+    password: ${RABBIT_MQ_BUS_PASSWORD}
 
 management.security.enabled: false
 
@@ -20,13 +20,9 @@ zuul:
   ignored-services: '*'
   ignoredPatterns: /**/api/**
   routes:
-    account-service: /account/**
-    payment-service: /payment/**
-    inventory-service: /inventory/**
-    order-service: /order/**
-    user-service: /user/**
-    catalog-service: /catalog/**
-    shopping-cart-service: /shoppingcart/**
+    ice-account-ms: /account/**
+
+ribbon.eureka.enabled: true 
 
 endpoints:
   restart:
@@ -35,14 +31,14 @@ endpoints:
     enabled: true
 
 server:  
-  port: 8300
+  port: ${ICE_GETWAY_MS_PORT}
 
 security:
   basic:
     enabled: false
   user:
-    name: user
-    password: ${CONFIG_SERVICE_PASSWORD}
+    name: admin#1
+    password:  ${ICE_GETWAY_MS_PASSWORD}
 
 logging:
   file: logs/default_app.log

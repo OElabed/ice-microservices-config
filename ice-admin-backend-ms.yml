@@ -9,10 +9,10 @@ spring:
   profiles: dev
   rabbitmq:
     # addresses:
-    host: localhost
-    port: 5672
-    username: user
-    password: hello00
+    host: ${RABBIT_MQ_BUS_HOST}
+    port: ${RABBIT_MQ_BUS_PORT}
+    username: admin#1
+    password: ${RABBIT_MQ_BUS_PASSWORD}
 
 configuration:  
   projectName: ICE ADMIN BACKEND MS 1
@@ -26,7 +26,7 @@ endpoints:
     enabled: true 
 
 server:  
-  port: 8400
+  port: ${ICE_ADMIN_BACKEND_MS_PORT}
 
 message:  
   greeting: Hello from the configuration dev
@@ -34,8 +34,8 @@ security:
   basic:
     enabled: false
   user:
-    name: user
-    password: ${CONFIG_SERVICE_PASSWORD}
+    name: admin#1
+    password: ${ICE_ADMIN_BACKEND_MS_PASSWORD}
 
 logging:
   file: logs/default_app.log
