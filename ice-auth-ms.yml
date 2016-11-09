@@ -8,11 +8,20 @@ spring:
 spring:
   profiles: dev
   rabbitmq:
-    # addresses:
     host: ${RABBIT_MQ_BUS_HOST}
     port: ${RABBIT_MQ_BUS_PORT}
     username: admin#1
     password: ${RABBIT_MQ_BUS_PASSWORD}
+  datasource:
+    url: jdbc:${MYSQL_AUTH_DB_URL}
+    username: root
+    password: ${MYSQL_AUTH_DB_PASSWORD}
+    driver-class: com.mysql.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: false
+    hibernate:
+      ddl-auto: create
 
 configuration:  
   projectName: ICE AUTH MS 1
