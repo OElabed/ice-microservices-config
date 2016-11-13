@@ -12,16 +12,23 @@ spring:
     port: ${RABBIT_MQ_BUS_PORT}
     username: admin#1
     password: ${RABBIT_MQ_BUS_PASSWORD}
-  datasource:
-    url: jdbc:${MYSQL_AUTH_DB_URL}
-    username: root
-    password: ${MYSQL_AUTH_DB_PASSWORD}
-    driver-class: com.mysql.jdbc.Driver
-  jpa:
-    database-platform: org.hibernate.dialect.MySQLDialect
-    show-sql: false
-    hibernate:
-      ddl-auto: create
+  data:
+    mongodb:
+      host: localhost
+      username: admin#1
+      password: ${MONGODB_AUTH_PASSWORD}
+      database: authDB
+      port: 27017
+  # datasource:
+  #   url: jdbc:${MYSQL_AUTH_DB_URL}
+  #   username: root
+  #   password: ${MYSQL_AUTH_DB_PASSWORD}
+  #   driver-class: com.mysql.jdbc.Driver
+  # jpa:
+  #   database-platform: org.hibernate.dialect.MySQLDialect
+  #   show-sql: false
+  #   hibernate:
+  #     ddl-auto: create
 
 configuration:  
   projectName: ICE AUTH MS 1
@@ -36,6 +43,7 @@ endpoints:
 
 server:  
   port: ${ICE_AUTH_MS_PORT}
+  contextPath: /uaa
 
 message:  
   greeting: Hello from the configuration dev

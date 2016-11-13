@@ -21,6 +21,7 @@ zuul:
   ignoredPatterns: /**/api/**
   routes:
     ice-account-ms: /account/**
+    ice-auth-ms: /auth/**
 
 ribbon.eureka.enabled: true 
 

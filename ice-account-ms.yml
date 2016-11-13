@@ -17,6 +17,8 @@ spring:
 configuration:  
   projectName: ICE ACCOUNT MS 1
 
+mail.domain: ice.com
+
 management.security.enabled: false
 
 endpoints:
@@ -33,6 +35,13 @@ message:
 security:
   basic:
     enabled: false
+  oauth2:
+    client:
+      clientId: ice-account-ms
+      clientSecret: ${ICE_ACCOUNT_MS_PASSWORD}
+      accessTokenUri: ${ICE_AUTH_MS_URL}/uaa/oauth/token
+      grant-type: client_credentials
+      scope: server
   user:
     name: admin#1
     password: ${ICE_ACCOUNT_MS_PASSWORD}
