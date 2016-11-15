@@ -15,8 +15,8 @@ spring:
   data:
     mongodb:
       host: localhost
-      username: admin#1
-      password: ${MONGODB_AUTH_PASSWORD}
+      # username: admin#1
+      # password: ${MONGODB_AUTH_PASSWORD}
       database: authDB
       port: ${MONGODB_AUTH_PORT}
   # datasource:
@@ -33,7 +33,8 @@ spring:
 configuration:  
   projectName: ICE AUTH MS 1
 
-management.security.enabled: false
+management:
+  security.enabled: false
 
 endpoints:
   restart:

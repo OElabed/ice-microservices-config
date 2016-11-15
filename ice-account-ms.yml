@@ -16,8 +16,8 @@ spring:
   data:
     mongodb:
       host: localhost
-      username: admin#1
-      password: ${MONGODB_ACCOUNT_PASSWORD}
+      # username: admin#1
+      # password: ${MONGODB_ACCOUNT_PASSWORD}
       database: accountDB
       port: ${MONGODB_ACCOUNT_PORT}
 
