@@ -18,7 +18,7 @@ spring:
       username: admin#1
       password: ${MONGODB_AUTH_PASSWORD}
       database: authDB
-      port: 27017
+      port: ${MONGODB_AUTH_PORT}
   # datasource:
   #   url: jdbc:${MYSQL_AUTH_DB_URL}
   #   username: root

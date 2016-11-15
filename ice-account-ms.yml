@@ -13,6 +13,13 @@ spring:
     port: ${RABBIT_MQ_BUS_PORT}
     username: admin#1
     password: ${RABBIT_MQ_BUS_PASSWORD}
+  data:
+    mongodb:
+      host: localhost
+      username: admin#1
+      password: ${MONGODB_ACCOUNT_PASSWORD}
+      database: accountDB
+      port: ${MONGODB_ACCOUNT_PORT}
 
 configuration:  
   projectName: ICE ACCOUNT MS 1
