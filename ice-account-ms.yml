@@ -49,6 +49,8 @@ security:
       accessTokenUri: ${ICE_AUTH_MS_URL}/uaa/oauth/token
       grant-type: client_credentials
       scope: server
+    resource:
+      user-info-uri: ${ICE_AUTH_MS_URL}/uaa/users/current
   user:
     name: admin#1
     password: ${ICE_ACCOUNT_MS_PASSWORD}
