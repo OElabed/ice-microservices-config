@@ -20,8 +20,19 @@ zuul:
   ignored-services: '*'
   ignoredPatterns: /**/api/**
   routes:
-    ice-account-ms: /account/**
-    ice-auth-ms: /auth/**
+    ice-auth-ms:
+        path: /uaa/**
+        url: ${ICE_AUTH_MS_URL}
+        stripPrefix: false
+        sensitiveHeaders:
+    ice-account-ms:
+        path: /account/**
+        serviceId: ice-account-ms
+        stripPrefix: false
+        sensitiveHeaders:
+  # routes:
+  #   ice-account-ms: /account/**
+  #   ice-auth-ms: /auth/**
 
 ribbon.eureka.enabled: true 
 
