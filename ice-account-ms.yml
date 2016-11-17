@@ -55,6 +55,14 @@ security:
     name: admin#1
     password: ${ICE_ACCOUNT_MS_PASSWORD}
 
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
 logging:
   file: logs/default_app.log
   pattern:

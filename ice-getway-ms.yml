@@ -41,6 +41,19 @@ security:
     name: admin#1
     password:  ${ICE_GETWAY_MS_PASSWORD}
 
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
+
+ribbon:
+  ReadTimeout: 20000
+  ConnectTimeout: 20000
+
 logging:
   file: logs/default_app.log
   pattern:
