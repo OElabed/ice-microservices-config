@@ -96,6 +96,7 @@ logging:
     org.springframework.web: WARN
     guru.springframework.controllers: WARN
     org.hibernate: WARN
+    org.springframework.security: DEBUG
 
 ---
 ############################
