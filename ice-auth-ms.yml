@@ -54,6 +54,9 @@ security:
   user:
     name: admin#1
     password: ${ICE_AUTH_MS_PASSWORD}
+  oauth2:
+    resource:
+      user-info-uri: ${ICE_AUTH_MS_URL}/uaa/users/current
 
 logging:
   file: logs/default_app.log
@@ -64,6 +67,7 @@ logging:
     org.springframework.web: WARN
     guru.springframework.controllers: WARN
     org.hibernate: WARN
+    org.springframework.security: DEBUG
 
 ---
 ############################

@@ -18,7 +18,10 @@ management.security.enabled: false
 
 zuul:
   ignored-services: '*'
-  ignoredPatterns: /**/api/**
+  #ignoredPatterns: /**/api/**
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
   routes:
     ice-auth-ms:
         path: /uaa/**
@@ -34,7 +37,6 @@ zuul:
   #   ice-account-ms: /account/**
   #   ice-auth-ms: /auth/**
 
-ribbon.eureka.enabled: true 
 
 endpoints:
   restart:
@@ -51,6 +53,9 @@ security:
   user:
     name: admin#1
     password:  ${ICE_GETWAY_MS_PASSWORD}
+  oauth2:
+    resource:
+      user-info-uri: ${ICE_AUTH_MS_URL}/uaa/users/current
 
 
 hystrix:
@@ -62,6 +67,7 @@ hystrix:
             timeoutInMilliseconds: 20000
 
 ribbon:
+  eureka.enabled: true 
   ReadTimeout: 20000
   ConnectTimeout: 20000
 
@@ -71,6 +77,7 @@ logging:
     console: "%d %-5level %logger : %msg%n"
     file: "%d %-5level [%thread] %logger : %msg%n"
   level:
+    org.springframework.security: INFO
     org.springframework.web: WARN
     guru.springframework.controllers: WARN
     org.hibernate: WARN
